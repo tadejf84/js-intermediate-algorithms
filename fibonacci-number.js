@@ -1,6 +1,7 @@
 // fibonacci number is the sum of the previous two numbers in the fibonacci sequence
 
-function fibonacci(n) {
+// fibonaacci with a loop
+function fibonacci1(n) {
   var i, prev1, prev2, fib;
 
   for(var i = 0; i <= n; i++) {
@@ -16,10 +17,20 @@ function fibonacci(n) {
       prev2 = fib;
     }
   }
-
   return fib;
+}
 
+// fibonacci recursive
+function fibonacci2(n) {
+	if (n < 1) {
+    return 0;
+  } else if (n <= 2) {
+    return 1;
+  } else {
+    return fibonacci2(n - 1) + fibonacci2(n - 2);
+  }
 }
 
 var para = document.querySelector('p');
-// para.innerHTML = fibonacci(7);
+// para.innerHTML = fibonacci1(7);
+para.innerHTML = fibonacci2(7);
