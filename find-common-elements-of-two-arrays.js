@@ -26,4 +26,4 @@ function findCommonEl(arr1, arr2) {
 var para = document.querySelector('p');
 var example1 = [1, 2, 4, 4, 6, 8, 11];
 var example2 = [3, 5, 7, 8, 9, 10, 11, 12, 13];
-para.innerHTML = findCommonEl(example1, example2);
+// para.innerHTML = findCommonEl(example1, example2);
