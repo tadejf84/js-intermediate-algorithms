@@ -45,4 +45,4 @@ var para = document.querySelector('p');
 var exampleArr = [20, 12, 18, 17, 13, 14, 11, 16, 19, 15];
 var first = 0;
 var last = exampleArr.length - 1;
-para.innerHTML = quickSort(exampleArr, first, last);
+// para.innerHTML = quickSort(exampleArr, first, last);
