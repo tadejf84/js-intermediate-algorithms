@@ -11,7 +11,7 @@ function quickSort(arr, left, right){
     return arr;
   }
 
-  while(i <= j) {
+  while (i <= j) {
     while(arr[i] < pivotVal) {
       i++;
     }
@@ -42,7 +42,7 @@ function quickSort(arr, left, right){
 
 
 var para = document.querySelector('p');
-var exampleArr = [12, 24, 17, 13, 14, 11, 16, 22, 28];
+var exampleArr = [20, 12, 18, 17, 13, 14, 11, 16, 19, 15];
 var first = 0;
 var last = exampleArr.length - 1;
-// para.innerHTML = quickSort(exampleArr, first, last);
+para.innerHTML = quickSort(exampleArr, first, last);
