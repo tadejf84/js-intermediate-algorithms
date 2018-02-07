@@ -31,6 +31,27 @@ function fibonacci2(n) {
   }
 }
 
+// fibonacci with memoization - much more efficient!
+var cache = {};
+
+function fibonacci3(n) {
+
+  if (n < 1) {
+    return 0;
+  } else if (n <= 2) {
+    return 1;
+  } else if (cache[n] != null) {
+    return cache[n];
+  } else {
+    var output = fibonacci3(n - 1) + fibonacci3(n - 2);
+  }
+
+  cache[n] = output;
+  return output;
+
+}
+
 var para = document.querySelector('p');
 // para.innerHTML = fibonacci1(7);
-para.innerHTML = fibonacci2(7);
+// para.innerHTML = fibonacci2(7);
+// para.innerHTML = fibonacci3(1000);
