@@ -1,4 +1,4 @@
-function quickSort(arr, left, right){
+function quickSort(arr, left = 0, right = arr.length - 1){
   var pivotIndex = Math.floor((left + right) / 2);
   var pivotVal = arr[pivotIndex];
   var i = left, j = right;
@@ -39,10 +39,6 @@ function quickSort(arr, left, right){
 
 }
 
-
-
 var para = document.querySelector('p');
 var exampleArr = [20, 12, 18, 17, 13, 14, 11, 16, 19, 15];
-var first = 0;
-var last = exampleArr.length - 1;
-// para.innerHTML = quickSort(exampleArr, first, last);
+// para.innerHTML = quickSort(exampleArr);
