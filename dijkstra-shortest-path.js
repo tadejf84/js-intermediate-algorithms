@@ -64,34 +64,36 @@ function dijkstra(graph) {
 // find lowest cost node
 function findCheapestNode(costs, visited) {
 
-  var cheapestNode = Object.keys(costs).reduce( function(lowest, node) {
+  // initial cost is equal to 0
+  var lowest = 0;
 
-    // if cost of the current node lower then lowest
-    if (lowest === 0 || costs[node] < costs[lowest]) {
-
-      // if node has not been visited yet
-      if (!visited.includes(node)) {
-        lowest = node;
+  // for each key in costs object check if current key lower than lowest
+  for (var key in costs) {
+    if (lowest === 0 || costs[key] < costs[lowest]) {
+      // only if node has not been visited yet
+      if (!visited.includes(key)) {
+        lowest = key;
       }
     }
+  }
 
-    return lowest;
-    
-  }, 0);
+  // return lowest cost node
+  return lowest;
 
-  return cheapestNode;
 }
-
 
 // Define example graph object
 const exampleGraph = {
-  initial: {A: 5, B: 2},
-  A: {C: 4, D: 2},
-  B: {A: 8, D: 7},
-  C: {D: 6, goal: 3},
-  D: {goal: 2},
+  initial: {A: 14, B: 8},
+  A: {C: 8, B: 11},
+  B: {D: 7, E: 10},
+  C: {F: 7, G: 4, D: 2},
+  D: {C: 2, E: 6},
+  E: {D: 6, G: 11},
+  F: {goal: 9, G: 14},
+  G: {goal: 10, F: 14},
   goal: {}
 };
 
 var para = document.querySelector('p');
-para.innerHTML = dijkstra(exampleGraph);
+// para.innerHTML = dijkstra(exampleGraph);
