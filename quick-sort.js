@@ -1,16 +1,24 @@
-function quickSort(arr, left = 0, right = arr.length - 1){
-  var pivotIndex = Math.floor((left + right) / 2);
-  var pivotVal = arr[pivotIndex];
-  var i = left, j = right;
+function quickSort(arr, left, right){
+  /* if not value yet for left and right, return these values */
+  if (left == null) { left = 0};
+  if (right == null) { right = arr.length - 1};
 
-  if (arr.length === 0) {
-    return 'You entered an empty array!';
-  }
+  let i = left, j = right;
 
-  if (arr.length < 2) {
-    return arr;
-  }
+  /* pick pivot at the middle of the array */
+  const pivotIndex = Math.floor((left + right) / 2);
+  const pivotVal = arr[pivotIndex];
 
+  /* check initial user input */
+  if (arr.length === 0) { return 'You entered an empty array!'; }
+  if (arr.length < 2) { return arr; }
+
+  /*
+  while left array elememnt value lower than pivot index and
+  while right array element value higher than pivot index continue
+  -> when this condition is not true anymore, break the while loop
+  -> swap the element in the left array with the element in the right array
+  */
   while (i <= j) {
     while(arr[i] < pivotVal) {
       i++;
@@ -19,13 +27,12 @@ function quickSort(arr, left = 0, right = arr.length - 1){
       j--;
     }
     if (i <= j) {
-      let temp = arr[i];
-      arr[i] = arr[j];
-      arr[j] = temp;
+      swap(arr, i, j);
       i++;
       j--;
     }
   }
+
 
   if (left < i - 1) {
     quickSort(arr, left, i-1);
@@ -36,9 +43,15 @@ function quickSort(arr, left = 0, right = arr.length - 1){
   }
 
   return arr;
+}
 
+/* helper function swap */
+function swap(arr, a, b) {
+  let temp = arr[a];
+  arr[a] = arr[b];
+  arr[b] = temp;
 }
 
 var para = document.querySelector('p');
-var exampleArr = [20, 12, 18, 17, 13, 14, 11, 16, 19, 15];
+const exampleArr = [20, 12, 18, 17, 13, 14, 11, 16, 19, 15];
 // para.innerHTML = quickSort(exampleArr);

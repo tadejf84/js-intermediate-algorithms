@@ -1,5 +1,7 @@
-// Dijkstra's algorithm is an algorithm for finding the shortest paths between nodes in a graph
-// Find the shortest path from an initial node to goal node in a weighted graph
+/*
+Dijkstra's algorithm is an algorithm for finding the shortest paths between nodes in a graph
+Find the shortest path from an initial node to goal node in a weighted graph
+*/
 function dijkstra(graph) {
 
   // track lowest cost to reach each node
@@ -15,18 +17,17 @@ function dijkstra(graph) {
   const visited = [];
 
   // find cheapest node from initial
-  var node = findCheapestNode(costs, visited);
-
+  let node = findCheapestNode(costs, visited);
 
   // while there is at least one node that's not visited yet
   while (node) {
 
-    var cost = costs[node]; // cost of the parent node
-    var children = graph[node]; // children of the parent node
+    const cost = costs[node]; // cost of the parent node
+    const children = graph[node]; // children of the parent node
 
     for (let i in children) {
 
-      var newCost = cost + children[i]; // new cost is calculated from cost of parent node + child node
+      let newCost = cost + children[i]; // new cost is calculated from cost of parent node + child node
 
       if (!costs[i]) {
         costs[i] = newCost;
@@ -47,8 +48,8 @@ function dijkstra(graph) {
   }
 
   // find optimal path to the goal node
-  var optimalPath = ['goal'];
-  var parent = parents[optimalPath];
+  const optimalPath = ['goal'];
+  let parent = parents[optimalPath];
 
   while (parent) {
     optimalPath.push(parent);
@@ -57,18 +58,19 @@ function dijkstra(graph) {
 
   optimalPath.reverse();
 
-  return 'Cost of the shortest path is ' + costs.goal + '. The optimal path follows these nodes: ' + optimalPath;
+  // return output
+  return 'Cost of the shortest path is ' + costs.goal +
+  '. The optimal path follows these nodes: ' + optimalPath;
+}
 
-};
-
-// find lowest cost node
+/*
+find lowest cost node
+*/
 function findCheapestNode(costs, visited) {
-
-  // initial cost is equal to 0
-  var lowest = 0;
+  let lowest = 0;
 
   // for each key in costs object check if current key lower than lowest
-  for (var key in costs) {
+  for (let key in costs) {
     if (lowest === 0 || costs[key] < costs[lowest]) {
       // only if node has not been visited yet
       if (!visited.includes(key)) {
@@ -77,12 +79,10 @@ function findCheapestNode(costs, visited) {
     }
   }
 
-  // return lowest cost node
   return lowest;
-
 }
 
-// Define example graph object
+// define example graph object
 const exampleGraph = {
   initial: {A: 14, B: 8},
   A: {C: 8, B: 11},
@@ -96,4 +96,4 @@ const exampleGraph = {
 };
 
 var para = document.querySelector('p');
-// para.innerHTML = dijkstra(exampleGraph);
+para.innerHTML = dijkstra(exampleGraph);

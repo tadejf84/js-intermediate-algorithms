@@ -1,6 +1,6 @@
 function heapSort(arr) {
-  var len = arr.length,
-      last = len - 1;
+  const len = arr.length;
+  let last = len - 1;
 
   // 1. Build a max heap from the array
   buildMaxHeap(arr, len);
@@ -14,13 +14,14 @@ function heapSort(arr) {
 
   // 3. Return sorted array
   return arr;
-
 }
 
-// build a max heap out of all the elements of the array
-// max heap is a binary tree where are all the parent nodes are larger or equal than their children
+/*
+build a max heap out of all the elements of the array
+max heap is a binary tree where are all the parent nodes are larger or equal than their children
+*/
 function buildMaxHeap(arr, len) {
-  var i = Math.floor(len / 2 - 1);
+  let i = Math.floor(len / 2 - 1);
 
   while (i >= 0) {
     heapify(arr, i, len);
@@ -32,7 +33,7 @@ function buildMaxHeap(arr, len) {
 // sort down from root to the end of the heap
 // if violating the rule (parent node >= child node), correct it
 function heapify(heap, i, len) {
-  var root, left, right;
+  let root, left, right;
 
   while(i < len) {
     root = i;
@@ -58,9 +59,12 @@ function heapify(heap, i, len) {
   }
 }
 
-// swap elements in the array
+/*
+helper function
+swap elements in the array
+*/
 function swap(arr, i, j) {
-  var temp = arr[i];
+  let temp = arr[i];
   arr[i] = arr[j];
   arr[j] = temp;
 }

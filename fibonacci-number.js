@@ -1,10 +1,14 @@
-// fibonacci number is the sum of the previous two numbers in the fibonacci sequence
+/*
+fibonacci number is the sum of the previous two numbers in the fibonacci sequence
+*/
 
-// fibonaacci with a loop
+/*
+fibonaacci with a loop
+*/
 function fibonacci1(n) {
-  var i, prev1, prev2, fib;
+  let prev1, prev2, fib;
 
-  for(var i = 0; i <= n; i++) {
+  for(let i = 0; i <= n; i++) {
     if (i === 0) {
       prev1 = 0;
       fib = prev1;
@@ -20,7 +24,9 @@ function fibonacci1(n) {
   return fib;
 }
 
-// fibonacci recursive
+/*
+fibonacci with recursion
+*/
 function fibonacci2(n) {
 	if (n < 1) {
     return 0;
@@ -31,10 +37,13 @@ function fibonacci2(n) {
   }
 }
 
-// fibonacci with memoization - much more efficient!
+/*
+fibonacci with memoization - much more efficient!
+*/
 var cache = {};
 
 function fibonacci3(n) {
+  let output;
 
   if (n < 1) {
     return 0;
@@ -43,12 +52,11 @@ function fibonacci3(n) {
   } else if (cache[n] != null) {
     return cache[n];
   } else {
-    var output = fibonacci3(n - 1) + fibonacci3(n - 2);
+    output = fibonacci3(n - 1) + fibonacci3(n - 2);
   }
 
   cache[n] = output;
   return output;
-
 }
 
 var para = document.querySelector('p');

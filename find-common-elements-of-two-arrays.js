@@ -1,26 +1,25 @@
 function findCommonEl(arr1, arr2) {
-  var i, j, el,
-     len1 = arr1.length,
-     len2 = arr2.length,
+  let el,
      exists = {},
      common = [];
 
-  // loop through first array
-  for (i = 0; i < len1; i++) {
-    el = arr1[i];
-
-    // loop through second array and compare
-    for (j = 0; j < len2; j++) {
-      if (el === arr2[j] && !exists[arr2[j]]) {
+  /*
+  loop throught first and second array and compare
+  if element from arr1 and arr2 are equal
+  and element not yet in the exist object
+  -> push in the common element array
+  */
+  for (let i of arr1) {
+    el = i;
+    for (let j of arr2) {
+      if (el === j && !exists[j]) {
         common.push(el);
-        exists[arr2[j]] = true;
+        exists[j] = true;
       }
     }
-
   }
 
   return common;
-
 }
 
 var para = document.querySelector('p');
