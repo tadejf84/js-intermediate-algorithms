@@ -59,11 +59,11 @@ function dijkstra(graph) {
   optimalPath.reverse();
 
   // return output
-  return [costs.goal, optimalPath]
+  return [costs.goal, optimalPath];
 }
 
 /*
-find lowest cost node
+* find lowest cost node
 */
 function findCheapestNode(costs, visited) {
   let lowest = 0;
