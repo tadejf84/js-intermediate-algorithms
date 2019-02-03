@@ -1,3 +1,7 @@
+/*
+* heap sort of array
+* heap sort is a comparison based sorting technique based on binary heap data structure
+*/
 function heapSort(arr) {
   const len = arr.length;
   let last = len - 1;
@@ -6,7 +10,7 @@ function heapSort(arr) {
   buildMaxHeap(arr, len);
 
   // 2. Continue heap sorting until we have at least one element
-  while(last >= 1) {
+  while(last > 0) {
     swap(arr, 0, last);
     heapify(arr, 0, last);
     last--;
@@ -16,13 +20,17 @@ function heapSort(arr) {
   return arr;
 }
 
+
 /*
-build a max heap out of all the elements of the array
-max heap is a binary tree where are all the parent nodes are larger or equal than their children
+* build a max heap out of all the elements of the array
+* max heap is a binary tree where are all the parent nodes are larger or equal than their children
 */
 function buildMaxHeap(arr, len) {
+
+  // split in a binary tree
   let i = Math.floor(len / 2 - 1);
 
+  // build a max heap
   while (i >= 0) {
     heapify(arr, i, len);
     i--;
@@ -30,8 +38,11 @@ function buildMaxHeap(arr, len) {
 
 }
 
-// sort down from root to the end of the heap
-// if violating the rule (parent node >= child node), correct it
+
+/*
+* sort down from root to the end of the heap
+* if violating the rule (parent node >= child node), correct it
+*/
 function heapify(heap, i, len) {
   let root, left, right;
 
@@ -49,7 +60,7 @@ function heapify(heap, i, len) {
       root = right;
     }
 
-    if (root == i) {
+    if (root === i) {
       return;
     }
 
@@ -59,9 +70,9 @@ function heapify(heap, i, len) {
   }
 }
 
+
 /*
-helper function
-swap elements in the array
+* helper function swap
 */
 function swap(arr, i, j) {
   let temp = arr[i];
@@ -69,6 +80,3 @@ function swap(arr, i, j) {
   arr[j] = temp;
 }
 
-var para = document.querySelector('p');
-var exampleArr = [20, 12, 18, 17, 13, 14, 11, 16, 19, 15];
-// para.innerHTML = heapSort(exampleArr);
