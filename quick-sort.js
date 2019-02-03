@@ -1,23 +1,27 @@
+/*
+* QuickSort is a Divide and Conquer algorithm
+* picks an element as pivot and partitions the given array around the picked pivot
+*/
 function quickSort(arr, left, right){
-  /* if not value yet for left and right, return these values */
+
+  // if not value yet for left and right, return these values
   if (left == null) { left = 0};
   if (right == null) { right = arr.length - 1};
 
   let i = left, j = right;
 
-  /* pick pivot at the middle of the array */
+  // pick pivot at the middle of the array
   const pivotIndex = Math.floor((left + right) / 2);
   const pivotVal = arr[pivotIndex];
 
-  /* check initial user input */
+  // check initial user input
   if (arr.length === 0) { return 'You entered an empty array!'; }
   if (arr.length < 2) { return arr; }
 
   /*
-  while left array elememnt value lower than pivot index and
-  while right array element value higher than pivot index continue
-  -> when this condition is not true anymore, break the while loop
-  -> swap the element in the left array with the element in the right array
+  * while left array element value lower than pivot index and right array element value higher than pivot index continue
+  * when this condition is not true anymore, break the while loop
+  * swap the element in the left array with the element in the right array
   */
   while (i <= j) {
     while(arr[i] < pivotVal) {
@@ -33,7 +37,6 @@ function quickSort(arr, left, right){
     }
   }
 
-
   if (left < i - 1) {
     quickSort(arr, left, i-1);
   }
@@ -45,13 +48,13 @@ function quickSort(arr, left, right){
   return arr;
 }
 
-/* helper function swap */
+
+/* 
+* helper function swap 
+*/
 function swap(arr, a, b) {
   let temp = arr[a];
   arr[a] = arr[b];
   arr[b] = temp;
 }
 
-var para = document.querySelector('p');
-const exampleArr = [20, 12, 18, 17, 13, 14, 11, 16, 19, 15];
-// para.innerHTML = quickSort(exampleArr);
