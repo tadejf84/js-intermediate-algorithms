@@ -1,6 +1,6 @@
 /*
-Dijkstra's algorithm is an algorithm for finding the shortest paths between nodes in a graph
-Find the shortest path from an initial node to goal node in a weighted graph
+* Dijkstra's algorithm is an algorithm for finding the shortest paths between nodes in a graph
+* Find the shortest path from an initial node to goal node in a weighted graph
 */
 function dijkstra(graph) {
 
@@ -59,8 +59,7 @@ function dijkstra(graph) {
   optimalPath.reverse();
 
   // return output
-  return 'Cost of the shortest path is ' + costs.goal +
-  '. The optimal path follows these nodes: ' + optimalPath;
+  return [costs.goal, optimalPath]
 }
 
 /*
@@ -82,18 +81,4 @@ function findCheapestNode(costs, visited) {
   return lowest;
 }
 
-// define example graph object
-const exampleGraph = {
-  initial: {A: 14, B: 8},
-  A: {C: 8, B: 11},
-  B: {D: 7, E: 10},
-  C: {F: 7, G: 4, D: 2},
-  D: {C: 2, E: 6},
-  E: {D: 6, G: 11},
-  F: {goal: 9, G: 14},
-  G: {goal: 10, F: 14},
-  goal: {}
-};
 
-var para = document.querySelector('p');
-para.innerHTML = dijkstra(exampleGraph);

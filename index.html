@@ -15,6 +15,28 @@
 	<script src="quick-sort.js"></script>
 	<script src="heap-sort.js"></script>
 	<script src="dijkstra-shortest-path.js"></script>
+	<script src="tower-hopper-problem.js"></script>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			
+			// dijkstra shortest path
+			const exampleGraph = {
+				initial: {A: 14, B: 8},
+				A: {C: 8, B: 11},
+				B: {D: 7, E: 10},
+				C: {F: 7, G: 4, D: 2},
+				D: {C: 2, E: 6},
+				E: {D: 6, G: 11},
+				F: {goal: 9, G: 14},
+				G: {goal: 10, F: 14},
+				goal: {}
+			};
+			
+			const dijkstraOutput = dijkstra(exampleGraph);
+			console.log(`Dijksta shortest path cost: ${dijkstraOutput[0]}, dijsktra shortest path: ${dijkstraOutput[1]}`);
+		});
+	</script>
 
 </body>
 </html>
