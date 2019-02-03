@@ -1,50 +1,36 @@
 /*
-function hoppable should return optimal steps if array is isHoppable
-if not hoppable, should return false
+* function hoppable should return minimum number steps if array is isHoppable
+* if not hoppable, should return false
 */
-function isHoppable(arr) {
+function minJumpsToHop(arr, start, end) {
+  let min = 999999, jumps;
 
-  var len = arr.length;
-  var steps = [];
+  // start tower and end tower are the same
+  if(start === end) {
+    return 0;
+  }
 
-  // check if height of tower at index 0 is 0
-  // if so, array is not hoppable and return false
-  if(arr[0] === 0) {
+  // first step height is 0, tower is not hoppable
+  if(arr[start] === 0) {
+    return false;
+  }
+
+  // find min jumps
+  for (let i = start + 1; i <= end && i <= start + arr[start]; i++) { 
+    jumps = minJumpsToHop(arr, i, end);
+    if(jumps != 999999 &&  jumps + 1 < min) {
+      min = jumps + 1; 
+    }
+  } 
+
+  // if array not hoppable, return false, else return min steps to hop
+  if(jumps === false) {
     return false;
   } else {
-    steps.push(arr[0]);
+    return min; 
   }
 
-  for(var i = 0; i < len; i++) {
-    var max = 0;
-    for (var j = i + 1; j <= i + arr[i]; j++) {
-      var step = arr[j] + j - i;
-      if(step > max && arr[j] !== 0 && j < len) {
-        max = step;
-        i = j;
-        steps.push(arr[j]);
-      }
-    }
-
-    // check if already outside array
-    sumAllSteps(steps);
-    if(sum >= len) {
-      return steps;
-    }
-
-  }
-  return false;
 }
 
 
-/*
-sum all steps in array
-*/
-function sumAllSteps(arr) {
-  return sum = arr.reduce((a, b) => a + b, 0);
-}
 
-
-var arr = [1,2,2,0,1];
-var para = document.querySelector('p');
-para.innerHTML = isHoppable(arr);
