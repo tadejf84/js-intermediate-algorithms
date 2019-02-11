@@ -6,8 +6,6 @@
 </head>
 <body>
 
-	<p>Uncomment the last line of code to see the output</p>
-	<button type="button" name="button" id="btn">Click me</button>
 
 	<script src="find-common-elements-of-two-arrays.js"></script>
 	<script src="fibonacci-number.js"></script>
@@ -16,6 +14,7 @@
 	<script src="heap-sort.js"></script>
 	<script src="dijkstra-shortest-path.js"></script>
 	<script src="tower-hopper-problem.js"></script>
+	<script src="shellsort.js"></script>
 
 	<script>
 		document.addEventListener("DOMContentLoaded", () => {
@@ -60,6 +59,10 @@
 			const testArr = [1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9];
 			const isHoppableTower = minJumpsToHop(testArr, 0, testArr.length);
 			console.log(`Minimum jumps to hop: ${isHoppableTower}`);
+
+			// shellsort
+			const shellSorted = shellSort([20, 12, 18, 17, 13, 14, 11, 16, 19, 15]);
+			console.log(`Shellsorted array: ${shellSorted}`);
 			
 		});
 	</script>
