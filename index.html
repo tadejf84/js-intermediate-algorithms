@@ -15,6 +15,9 @@
 	<script src="dijkstra-shortest-path.js"></script>
 	<script src="tower-hopper-problem.js"></script>
 	<script src="shellsort.js"></script>
+	<script src="find-longest-common-substring.js"></script>
+	<script src="knapsack.js"></script>
+	<script src="coin-changing-problem.js"></script>
 
 	<script>
 		document.addEventListener("DOMContentLoaded", () => {
@@ -63,6 +66,26 @@
 			// shellsort
 			const shellSorted = shellSort([20, 12, 18, 17, 13, 14, 11, 16, 19, 15]);
 			console.log(`Shellsorted array: ${shellSorted}`);
+
+			// find longest common subtring of two strings
+			const str1 = 'This is sentence';
+			const str2 = 'Sentence is awesome!';
+			const commonSubstr = findLongestCommonSubstr(str1, str2);
+			console.log(`Longest common substring: ${commonSubstr}`);
+			
+			// knapsack problem solved
+			const value = [3, 16, 2, 11, 13];
+			const size = [6, 7, 4, 5, 9];
+			const capacity = 16;
+			const n = 5;
+			const knapsackProblem = knapsack2(capacity, size, value, n);
+			console.log(`Knapsack max value: ${knapsackProblem}`);
+			
+			// coin change problem
+			var origAmt = .65;
+			var coins = [];
+			const coinChange = makeChange(origAmt, coins);
+			console.log(`Coin change: ${coinChange}`);
 			
 		});
 	</script>
