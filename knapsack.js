@@ -12,6 +12,7 @@ function knapsack(capacity, size, value, n) {
 	}
 }
 
+
 /*
 * knapsack dynamic
 */
@@ -22,11 +23,10 @@ function knapsack2(capacity, size, value, n) {
 	}
 	for (let i = 0; i <= n; i++) {
 		for (let w = 0; w <= capacity; w++) {
-			if (i == 0 || w == 0) {
+			if (i === 0 || w === 0) {
 				K[i][w] = 0;
 			} else if (size[i - 1] <= w) {
-				K[i][w] = findMax(value[i - 1] + K[i - 1][w-size[i - 1]],
-				K[i-1][w]);
+				K[i][w] = findMax(value[i - 1] + K[i - 1][w-size[i - 1]], K[i-1][w]);
 			} else {
 				K[i][w] = K[i-1][w];
 			}
@@ -34,6 +34,7 @@ function knapsack2(capacity, size, value, n) {
 	}
 	return K[n][capacity];
 }
+
 
 /*
 * find max value
