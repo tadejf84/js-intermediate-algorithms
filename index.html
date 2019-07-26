@@ -17,6 +17,7 @@
 	<script src="shellsort.js"></script>
 	<script src="knapsack.js"></script>
 	<script src="coin-change-problem.js"></script>
+	<script src="two-sum.js"></script>
 
 	<script>
 		document.addEventListener("DOMContentLoaded", () => {
@@ -80,6 +81,10 @@
 			const coinChange = calcChange(changeOwed, coinDenominations);
 			const displayChange = dispChange(coinChange)
 			console.log(displayChange);
+
+			// two sum
+			const twoSumResult = twoSum([3, 2, 9, 6, 15], 8);
+			console.log(`Two-sum solution: ${twoSumResult}`);
 			
 		});
 	</script>
