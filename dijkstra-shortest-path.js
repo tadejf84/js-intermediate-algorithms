@@ -1,7 +1,10 @@
-/*
-* Dijkstra's algorithm is an algorithm for finding the shortest paths between nodes in a graph
-* Find the shortest path from an initial node to goal node in a weighted graph
-*/
+
+/**
+ * Dijkstra's algorithm is an algorithm for finding the shortest paths between nodes in a graph
+ * Find the shortest path from an initial node to goal node in a weighted graph
+ * 
+ * @param {object} graph 
+ */
 function dijkstra(graph) {
 
   // track lowest cost to reach each node
