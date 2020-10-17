@@ -72,6 +72,8 @@ function dijkstra(graph) {
  * 
  * @param {object} costs 
  * @param {object} visited 
+ * 
+ * @returns {string} lowest
  */
 function findCheapestNode(costs, visited) {
     let lowest = 0;
