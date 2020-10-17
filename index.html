@@ -6,7 +6,6 @@
 </head>
 <body>
 
-
 	<script src="find-common-elements-of-two-arrays.js"></script>
 	<script src="fibonacci-number.js"></script>
 	<script src="merge-sort.js"></script>
@@ -23,7 +22,7 @@
 	<script>
 		document.addEventListener("DOMContentLoaded", () => {
 			
-			// dijkstra shortest path
+			// Dijkstra shortest path
 			const exampleGraph = {
 				initial: {A: 14, B: 8},
 				A: {C: 8, B: 11},
@@ -39,36 +38,36 @@
 			const dijkstraOutput = dijkstra(exampleGraph);
 			console.log(`Dijksta shortest path cost: ${dijkstraOutput[0]}, dijsktra shortest path: ${dijkstraOutput[1]}`);
 
-			// fibonacci number
+			// Fibonacci number
 			const fib = fibonacci3(1000);
 			console.log(`Fibonnaci number: ${fib}`);
 
-			// find common elements in array
+			// Find common elements in array
 			const commonElts = findCommonEl( [1, 2, 4, 4, 6, 8, 11], [3, 5, 7, 8, 9, 10, 11, 12, 13] );
 			console.log(`Common elements array: ${commonElts}`);
 
-			// heap sort
+			// Heap sort
 			const arrHeapSorted = heapSort([20, 12, 18, 17, 13, 14, 11, 16, 19, 15]);
 			console.log(`Heap sorted array: ${arrHeapSorted}`);
 
-			// merge sort
+			// Merge sort
 			const arrMergeSorted = mergeSort([20, 12, 18, 17, 13, 14, 11, 16, 19, 15]);
 			console.log(`Merge sorted array: ${arrMergeSorted}`);
 
-			// quick sort
+			// Quick sort
 			const arrQuickSorted = quickSort([20, 12, 18, 17, 13, 14, 11, 16, 19, 15]);
 			console.log(`Quick sorted array: ${arrQuickSorted}`);
 
-			// tower hopper problem solution
+			// Tower hopper problem solution
 			const testArr = [1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9];
 			const isHoppableTower = minJumpsToHop(testArr, 0, testArr.length);
 			console.log(`Minimum jumps to hop: ${isHoppableTower}`);
 
-			// shellsort
+			// Shellsort
 			const shellSorted = shellSort([20, 12, 18, 17, 13, 14, 11, 16, 19, 15]);
 			console.log(`Shellsorted array: ${shellSorted}`);
 			
-			// knapsack problem solved
+			// Knapsack problem solved
 			const value = [3, 16, 2, 11, 13];
 			const size = [6, 7, 4, 5, 9];
 			const capacity = 16;
@@ -76,17 +75,17 @@
 			const knapsackProblem = knapsack2(capacity, size, value, n);
 			console.log(`Knapsack max value: ${knapsackProblem}`);
 			
-			// coin change problem - euro coins
+			// Coin change problem - euro coins
 			const changeOwed = 1.37;
 			const coinDenominations = [2, 1, 0.5, 0.2, 0.1, 0.05, 0.02, 0.01];
 			const coinChange = calcChange(changeOwed, coinDenominations);
 			console.log(coinChange);
 
-			// two sum
+			// Two sum
 			const twoSumResult = twoSum([3, 2, 9, 6, 15], 8);
 			console.log(`Two-sum solution: ${twoSumResult}`);
 
-			// longest common prefix
+			// Longest common prefix
 			const lcp = longestCommonPrefix(["flower","flow","flight"]);
 			console.log(`Longest common prefix: ${lcp}`);
 			
