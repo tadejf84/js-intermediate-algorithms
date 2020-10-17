@@ -5,6 +5,8 @@
  * @param {array} arr 
  * @param {number} start 
  * @param {number} end 
+ * 
+ * @returns {number} number of jumps
  */
 function minJumpsToHop(arr, start, end) {
     let min = 999999, 
