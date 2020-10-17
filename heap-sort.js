@@ -46,11 +46,9 @@ function buildMaxHeap(arr, len) {
 }
 
 
-/*
-* sort down from root to the end of the heap
-* if violating the rule (parent node >= child node), correct it
-*/
 /**
+ * Sort down from root to the end of the heap
+ * If violating the rule (parent node >= child node), correct it
  * 
  * @param {object} heap 
  * @param {number} i 
