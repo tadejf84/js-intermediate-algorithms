@@ -16,7 +16,6 @@ function longestCommonPrefix(strs) {
         const char = strs[0][i];
 
         for (let j = 0; j < len; j++) {
-            console.log(typeof prefix);
             if (strs[j][i] !== char) return prefix;
         }
 
