@@ -1,60 +1,68 @@
-/*
-* QuickSort is a Divide and Conquer algorithm
-* picks an element as pivot and partitions the given array around the picked pivot
-*/
-function quickSort(arr, left, right){
+/**
+ * QuickSort is a Divide and Conquer algorithm
+ * Picks an element as pivot and partitions the given array around the picked pivot
+ * 
+ * @param {array} arr 
+ * @param {number} left pivot 
+ * @param {number} right pivot
+ * 
+ * @returns {array} sorted array
+ */
+function quickSort(arr, left = 0, right = arr.length - 1){
+    let i = left, 
+        j = right;
 
-  // if not value yet for left and right, return these values
-  if (left == null) { left = 0};
-  if (right == null) { right = arr.length - 1};
+    // Pick pivot at the middle of the array
+    const pivotIndex = Math.floor((left + right) / 2);
+    const pivotVal = arr[pivotIndex];
 
-  let i = left, j = right;
+    // Check initial user input
+    if (arr.length === 0) { return 'You entered an empty array!'; }
+    if (arr.length < 2) { return arr; }
 
-  // pick pivot at the middle of the array
-  const pivotIndex = Math.floor((left + right) / 2);
-  const pivotVal = arr[pivotIndex];
+    /*
+    * While left array element value is lower than pivot index and right array element value higher than pivot index continue
+    * Swap the element in the left array with the element in the right array
+    */
+    while (i <= j) {
 
-  // check initial user input
-  if (arr.length === 0) { return 'You entered an empty array!'; }
-  if (arr.length < 2) { return arr; }
+        while(arr[i] < pivotVal) {
+            i++;
+        }
 
-  /*
-  * while left array element value lower than pivot index and right array element value higher than pivot index continue
-  * when this condition is not true anymore, break the while loop
-  * swap the element in the left array with the element in the right array
-  */
-  while (i <= j) {
-    while(arr[i] < pivotVal) {
-      i++;
+        while(arr[j] > pivotVal) {
+            j--;
+        }
+
+        if (i <= j) {
+            swap(arr, i, j);
+            i++;
+            j--;
+        }
     }
-    while(arr[j] > pivotVal) {
-      j--;
+
+    if (left < i - 1) {
+        quickSort(arr, left, i-1);
     }
-    if (i <= j) {
-      swap(arr, i, j);
-      i++;
-      j--;
+
+    if (right > i) {
+        quickSort(arr, i, right);
     }
-  }
 
-  if (left < i - 1) {
-    quickSort(arr, left, i-1);
-  }
-
-  if (right > i) {
-    quickSort(arr, i, right);
-  }
-
-  return arr;
+    return arr;
 }
 
 
-/* 
-* helper function swap 
-*/
+/**
+ * Swap elements in array
+ * 
+ * @param {array} arr 
+ * @param {number} a 
+ * @param {number} b 
+ */
 function swap(arr, a, b) {
-  let temp = arr[a];
-  arr[a] = arr[b];
-  arr[b] = temp;
+    let temp = arr[a];
+    arr[a] = arr[b];
+    arr[b] = temp;
 }
 
