@@ -34,6 +34,8 @@ function mergeSort (arr) {
  * 
  * @param {array} left 
  * @param {array} right 
+ * 
+ * @returns {array} merged array
  */
 function merge(left, right) {
     let output = [],
