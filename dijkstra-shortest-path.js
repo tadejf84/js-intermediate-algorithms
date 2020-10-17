@@ -4,84 +4,88 @@
  * Find the shortest path from an initial node to goal node in a weighted graph
  * 
  * @param {object} graph 
+ * 
+ * @returns {array} cost and optimal path
  */
 function dijkstra(graph) {
 
-  // track lowest cost to reach each node
-  const costs = {
-    initial: 0,
-    goal: Infinity
-  };
+    // Track lowest cost to reach each node
+    const costs = {
+        initial: 0,
+        goal: Infinity
+    };
 
-  // track edges
-  const parents = {};
+    // Track edges
+    const parents = {};
 
-  // track nodes that have already been visited
-  const visited = [];
+    // Track nodes that have already been visited
+    const visited = [];
 
-  // find cheapest node from initial
-  let node = findCheapestNode(costs, visited);
+    // Find cheapest node from initial
+    let node = findCheapestNode(costs, visited);
 
-  // while there is at least one node that's not visited yet
-  while (node) {
+    // While there is an unvisited node
+    while (node) {
 
-    const cost = costs[node]; // cost of the parent node
-    const children = graph[node]; // children of the parent node
+        const cost = costs[node]; // Cost of the parent node
+        const children = graph[node]; // Children of the parent node
 
-    for (let i in children) {
+        for (let i in children) {
 
-      let newCost = cost + children[i]; // new cost is calculated from cost of parent node + child node
+            let newCost = cost + children[i]; // New cost is calculated from cost of parent node + child node
 
-      if (!costs[i]) {
-        costs[i] = newCost;
-        parents[i] = node;
-      }
+            if (!costs[i]) {
+                costs[i] = newCost;
+                parents[i] = node;
+            }
 
-      if (costs[i] > newCost) {
-        costs[i] = newCost;
-        parents[i] = node;
-      }
+            if (costs[i] > newCost) {
+                costs[i] = newCost;
+                parents[i] = node;
+            }
+        }
+
+        // Node has been visited - push in the visited array
+        visited.push(node);
+
+        // Repeat until all nodes have been visited
+        node = findCheapestNode(costs, visited);
     }
 
-    // node has been visited - push in the visited array
-    visited.push(node);
+    // Find optimal path to the goal node
+    const optimalPath = ['goal'];
+    let parent = parents[optimalPath];
 
-    // repeat until all nodes have been visited
-    node = findCheapestNode(costs, visited);
-  }
+    while (parent) {
+        optimalPath.push(parent);
+        parent = parents[parent];
+    }
 
-  // find optimal path to the goal node
-  const optimalPath = ['goal'];
-  let parent = parents[optimalPath];
+    optimalPath.reverse();
 
-  while (parent) {
-    optimalPath.push(parent);
-    parent = parents[parent];
-  }
-
-  optimalPath.reverse();
-
-  // return output
-  return [costs.goal, optimalPath];
+    return [costs.goal, optimalPath];
 }
 
-/*
-* find lowest cost node
-*/
+
+/**
+ * Find lowest cost node
+ * 
+ * @param {object} costs 
+ * @param {object} visited 
+ */
 function findCheapestNode(costs, visited) {
-  let lowest = 0;
+    let lowest = 0;
 
-  // for each key in costs object check if current key lower than lowest
-  for (let key in costs) {
-    if (lowest === 0 || costs[key] < costs[lowest]) {
-      // only if node has not been visited yet
-      if (!visited.includes(key)) {
-        lowest = key;
-      }
+    // For each key in costs object check if current key is lower than the lowest
+    for (let key in costs) {
+        if (lowest === 0 || costs[key] < costs[lowest]) {
+
+            // Only if node has not been visited yet
+            if (!visited.includes(key)) lowest = key;
+        }
     }
-  }
 
-  return lowest;
+    return lowest;
 }
 
 
