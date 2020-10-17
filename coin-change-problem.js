@@ -11,7 +11,7 @@ function calcChange(cReturn, denominations) {
 	
 	// Loop through each denomination and calculate change
 	for (let den of denominations) {
-		
+
 		let count = 0;
 
 		if(cReturn % den < cReturn) {
@@ -26,23 +26,9 @@ function calcChange(cReturn, denominations) {
 			'denomination': den,
 			'count': count
 		};
-		change.push(obj);
 
+		change.push(obj);
 	}
 	
 	return change;
-}
-
-
-/*
-* function to display coin change in readable format
-*/
-function displayChange(change) {
-	let str = "Change owed: ";
-	for(let c of change) {
-		if(c.count !== 0) {
-			str += `${c.denomination}€ x ${c.count}, `;
-		}
-	}
-	console.log(str);
 }
